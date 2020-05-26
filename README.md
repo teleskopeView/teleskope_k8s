@@ -1,4 +1,4 @@
-# teleskope_k8s
+# teleskope
 
 ## Reasoning
 
