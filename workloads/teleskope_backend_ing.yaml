@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app.kubernetes.io/instance: teleskope
+  name: teleskope-backend-ing
+spec:
+  rules:
+  - host: domain.com
+    http:
+      paths:
+      - backend:
+          serviceName: teleskope-backend-svc
+          servicePort: http
+        path: /ns
+      - backend:
+          serviceName: teleskope-backend-svc
+          servicePort: http
+        path: /dep
+      - backend:
+          serviceName: teleskope-backend-svc
+          servicePort: http
+        path: /list
+      - backend:
+          serviceName: teleskope-backend-svc
+          servicePort: http
+        path: /ws
