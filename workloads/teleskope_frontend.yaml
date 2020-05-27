@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: teleskope
+    app.kubernetes.io/name: teleskope-frontend
+  name: teleskope-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: teleskope
+      app.kubernetes.io/name: teleskope-frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: teleskope
+        app.kubernetes.io/name: teleskope-frontend
+    spec:
+      containers:
+      - env:
+        - name: VUE_APP_WS_ENDPOINT
+          value: ws://domain.com/ws
+        image: efrat19/teleskope-frontend:amd64-0d8988d1d50a04f4b3ea1b6d6d3af1dce3abd06b
+        imagePullPolicy: IfNotPresent
+        name: master
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
