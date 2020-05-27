@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: teleskope
+    app.kubernetes.io/name: teleskope-backend
+  name: teleskope-backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: teleskope
+      app.kubernetes.io/name: teleskope-backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: teleskope
+        app.kubernetes.io/name: teleskope-backend
+        fargate: "false"
+    spec:
+      containers:
+      - command:
+        - ./teleskope_backend
+        - run
+        env:
+        - name: PORT
+          value: "3000"
+        image: idobry/teleskope_backend:sha-cbca3ba
+        imagePullPolicy: IfNotPresent
+        name: master
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
