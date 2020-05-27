@@ -2,27 +2,17 @@
 
 ## Reasoning
 
-When using `flux` our pipelines, or to be more precise, our Continues Deployments are fully automated and that's great.
-But, sometimes we would like to have more stable environments with fewer deployments and with more control, for example, production.
-That's mean we need to do some manual actions against `flux` which have his own CLI tool `fluxctl`.
 
-flux-web is intended to be the UI approach to this problem. With flux-web we can view at our workloads per namespace with their available versions and with a single click we can promote a workload or to perform a rollback.
 
 ## Getting Started
 
 The easiset way to deploy flux-web is with helm:
 ```shell
-git clone git@github.com:flux-web/flux-web.git
-cd flux-web/chart/flux-web
+git clone git@github.com:
+cd 
 kubectl create ns flux
-helm install . --name flux-web \
-               --set namespace=flux
-```
-Or, for an example we can deploy flux-web as readonly mode:
-```shell
 helm install . --name  \
-               --set namespace=flux
-               --set frontend.env.READ_ONLY=true
+               --set namespace=
 ```
 
 Deploying teleskope with `HelmRelease`:
