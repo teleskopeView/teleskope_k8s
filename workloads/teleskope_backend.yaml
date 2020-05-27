@@ -22,7 +22,6 @@ spec:
       labels:
         app.kubernetes.io/instance: teleskope
         app.kubernetes.io/name: teleskope-backend
-        fargate: "false"
     spec:
       containers:
       - command:
