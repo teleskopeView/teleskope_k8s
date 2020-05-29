@@ -1,6 +1,5 @@
 
-<img src="https://github.com/teleskopeView/teleskope_k8s/65680753.png" width="48">
-<img src="./65680753.png"  width="120" height="120">
+<img src="./65680753.png"  width="120" height="120"> 
 # teleskope
 
 ## Reasoning
