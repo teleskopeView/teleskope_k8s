@@ -38,7 +38,6 @@ Basically a roadmap.
 
 ## Built With
 
-* [beego](https://beego.me/) - Backend framework
 * [go](https://golang.org/) - Programing language
 * [vue.js](https://vuejs.org/) - Frontend framework
 * [nuxt.js](https://nuxtjs.org/) - Giving vue.js the ability to do ssr
