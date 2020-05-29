@@ -1,4 +1,5 @@
-![alt text](./65680753.png =100x100)
+
+<img src="https://github.com/teleskopeView/teleskope_k8s/65680753.png" width="48">
 # teleskope
 
 ## Reasoning
