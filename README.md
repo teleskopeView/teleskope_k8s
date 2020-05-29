@@ -6,11 +6,11 @@
 
 ## Getting Started
 
-The easiset way to deploy flux-web is with helm:
+The easiset way to deploy teleskope is with helm:
 ```shell
 git clone git@github.com:
 cd 
-kubectl create ns flux
+kubectl create ns teleskope
 helm install . --name  \
                --set namespace=
 ```
@@ -47,7 +47,7 @@ Basically a roadmap.
 
 ## Contributing
 
-Code contributions are very welcome. If you are interested in helping make flux-web great then feel free!
+Code contributions are very welcome.
 
 ## Authors 
 
