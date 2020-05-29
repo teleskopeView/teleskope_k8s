@@ -1,4 +1,4 @@
-![alt text](./65680753.png)
+![alt text](./65680753.png=100x100)
 # teleskope
 
 ## Reasoning
