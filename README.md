@@ -1,3 +1,4 @@
+![alt text](./65680753.png "Logo Title Text 1")
 # teleskope
 
 ## Reasoning
