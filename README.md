@@ -101,7 +101,6 @@ Basically a roadmap.
 
 * [go](https://golang.org/) - Programing language
 * [vue.js](https://vuejs.org/) - Frontend framework
-* [nuxt.js](https://nuxtjs.org/) - Giving vue.js the ability to do ssr
 * [docker](https://www.docker.com/) - Containerized with docker
 * [helm](https://www.helm.sh/) - Packaged with helm
 
