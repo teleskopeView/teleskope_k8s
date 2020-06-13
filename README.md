@@ -2,6 +2,7 @@
 <img src="./65680753.png"  width="120" height="120"> 
 
 # teleskope
+<img src="teleskope_demo.gif"/>
 
 ## Reasoning
 
