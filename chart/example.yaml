@@ -16,8 +16,6 @@ backend:
     targetPort: 3000
   ingress:
     enabled: true
-    annotations:
-      kubernetes.io/ingress.class: nginx-controller-internal
     hosts:
     - host: teleskope.io
       paths: ["/ns", "/dep", "/list", "/ws"]
