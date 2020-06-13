@@ -1,5 +1,5 @@
 
-<img src="./image.png"  height="120"> 
+<img src="./image.png"  height="200"> 
 
 <img src="teleskope_demo.gif"/>
 
