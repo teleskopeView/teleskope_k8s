@@ -1,7 +1,8 @@
 
 <img src="./image.png"  height="200"> 
 
-![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/teleskopeView/teleskope_k8s)]
+![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/teleskopeView/teleskope_k8s)
+
 <img src="teleskope_demo.gif"/>
 
 
