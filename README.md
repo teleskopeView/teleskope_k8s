@@ -1,5 +1,5 @@
 
-<img src="./image2.png"  height="200"> 
+<img src="./image2.png"  height="170"> 
 
 ### Give your devs and product managers an inside view of the cluster
 
