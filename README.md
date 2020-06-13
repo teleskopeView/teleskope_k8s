@@ -1,10 +1,12 @@
 
 <img src="./image.png"  height="200"> 
 
-### Give your devs and product managers an inside view of the cluster
-
 ![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/teleskopeView/teleskope_k8s)]
 <img src="teleskope_demo.gif"/>
+
+
+### Give your devs and product managers an inside view of the cluster
+
 
 ## Reasoning
 
