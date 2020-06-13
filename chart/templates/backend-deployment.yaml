@@ -1,0 +1,102 @@
+{{- if .Values.backend.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "master.fullname" . }}-backend
+  labels:
+    app.kubernetes.io/name: {{ include "master.name" . }}-backend
+{{ include "master.labels" . | indent 4 }}
+{{ toYaml .Values.common.lables | indent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "master.name" . }}-backend
+      app.kubernetes.io/instance: {{ .Release.Name }}
+{{- with .Values.backend.replicas }}
+  replicas: {{ . }}
+{{- end }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "master.name" . }}-backend
+        app.kubernetes.io/instance: {{ .Release.Name }}
+{{ toYaml .Values.common.lables | indent 8 }}
+    spec:
+      hostAliases:
+    {{ range .Values.backend.hostAliases }}
+      - ip: {{.ip}}
+        hostnames:
+        {{- range .hostnames }}
+        - {{.name}}
+        {{- end }}
+    {{- end }}
+    {{- if .Values.backend.serviceAccount.create }}
+      serviceAccountName: {{ include "master.name" . }}-backend-sa
+    {{- end }}
+    {{- with .Values.backend.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.backend.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+          # {{ if .Values.backend.ingress.enabled }}
+          # - name: YAD2_HOSTNAME
+          #   value: {{ (index .Values.backend.ingress.hosts 0).host | quote }}
+          # {{- end }}
+          {{- toYaml .Values.backend.env | nindent 10 }}
+          {{- with .Values.backend.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
+          {{ if .Values.backend.command -}}
+          command:
+          {{- toYaml .Values.backend.command | nindent 10 }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.backend.service.targetPort }}
+              protocol: TCP
+          {{ if .Values.backend.probes.enabled -}}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.backend.probes.livenessPath | default .Values.backend.probes.path }}
+              port: http
+            timeoutSeconds: {{ .Values.backend.probes.timeout }}
+            initialDelaySeconds: 10
+            failureThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.backend.probes.readinessPath | default .Values.backend.probes.path }}
+              port: http
+            timeoutSeconds: {{ .Values.backend.probes.timeout }}
+            initialDelaySeconds: 10
+            successThreshold: 3
+            failureThreshold: 1
+          {{- end }}
+          {{ if .Values.backend.enableResources -}}
+          resources:
+            {{- toYaml .Values.backend.resources | nindent 12 }}
+          {{- end }}
+{{- if .Values.backend.extraContainers }}
+{{ toYaml .Values.backend.extraContainers | indent 8}}
+{{- end }}
+      {{- with .Values.backend.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+      {{- with .Values.backend.volumes }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.backend.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.backend.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+{{- end }}

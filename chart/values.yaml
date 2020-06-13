@@ -1,0 +1,109 @@
+backend:
+  enabled: false
+  hostAliases: []
+  #- ip: 0.0.0.0
+  #  hostnames:
+  #  - name: "aaaaaa"
+  #  - name: "bbbb"
+  #- ip: 1.1.1.1
+  #  hostnames:
+  #  - name: "aaaaaa"
+  image: ""
+  imagePullPolicy: IfNotPresent
+
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+  serviceAccount:
+    create: false
+  env: []
+
+  volumes: []
+
+  volumeMounts: []
+
+  probes:
+    enabled: false
+    path: "/"
+    timeout: 3
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  ingress:
+    enabled: false
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+    hosts: []
+
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+  enableResources: true
+  resources: 
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+frontend:
+  enabled: false
+  image: ""
+  imagePullPolicy: IfNotPresent
+  
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+  
+  probes:
+    enabled: false
+    path: "/"
+    timeout: 3
+
+  service:
+    type: ClusterIP
+    port: 80
+  
+  ingress:
+    enabled: false
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+    hosts: {}
+  
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+  enableResources: true  
+  resources: 
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    
+  hpa:
+    enabled: true
+    replicaMin: 2
+    replicaMax: 10
+    targetAverageUtilization: 70
+  
+  nodeSelector: {}
+  
+  tolerations: []
+  
+  affinity: {}
+

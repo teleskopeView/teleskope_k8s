@@ -1,0 +1,18 @@
+{{- if .Values.backend.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "master.fullname" . }}-backend-svc
+  labels:
+{{ include "master.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.backend.service.type }}
+  ports:
+    - port: {{ .Values.backend.service.port }}
+      targetPort: {{ .Values.backend.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "master.name" . }}-backend
+    app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
