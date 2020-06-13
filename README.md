@@ -20,7 +20,6 @@ helm install --name teleskope -f example.yaml
 Deploying teleskope with `HelmRelease`:
 ```
 ---
----
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
