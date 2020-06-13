@@ -12,7 +12,7 @@
 
 ## Reasoning
 
-
+If you ever feel tired of answering over and over to questions like "Which version is on the staging env" or "when was the last deploy to canary" or "how many pods are running in the qa env" then this project is for you - just deploy the Helm chart and let devs\product managers find the answers themselves, so you can focus on doing the fun stuff
 
 ## Getting Started
 
