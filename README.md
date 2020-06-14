@@ -92,11 +92,12 @@ Basically a roadmap.
 
 ### Maybe in the future, if people want it
 
-- user access and authentication
+- Support for Daemonsets objects
 
 ### Probably in the future
 
-- select and release multiple workloads
+- Support for multi containres in a pod
+- Support for Statefulsets objects
 
 ## Built With
 
