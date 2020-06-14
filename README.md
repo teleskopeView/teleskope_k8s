@@ -76,8 +76,6 @@ spec:
         targetPort: 80
       ingress:
         enabled: true
-        annotations:
-          kubernetes.io/ingress.class: nginx-controller-internal
         hosts:
         - host: teleskope.io
           paths: ["/"]
