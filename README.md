@@ -18,7 +18,7 @@ If you ever feel tired of answering over and over to questions like "Which versi
 
 The easiset way to deploy teleskope is with helm:
 ```shell
-git clone git@github.com:teleskopeView/teleskope_k8s.git:
+git clone git@github.com:teleskopeView/teleskope_k8s.git
 cd chart
 kubectl create ns teleskope
 helm install --name teleskope -f example.yaml
