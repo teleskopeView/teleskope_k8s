@@ -113,3 +113,7 @@ Code contributions are very welcome.
 
 * [Ido Braunstain](https://github.com/idobry) - *Initial work*
 * [Efrat Lavitan](https://github.com/efrat19) - *Initial work*
+
+## Special Thanks
+
+* [Tal Goldberg](https://github.com/Talg123) - *CSS help*
